@@ -45,7 +45,7 @@ let rec find_by_id id db =
 type my_list = Empty | Element of int * my_list
 
 let one_two_five = Element (1, Element (2, Element (5, Empty)))
-let insert new_element list = Element (new_element, list)
+let cons new_element list = Element (new_element, list)
 
 let rec insert_sorted new_element list =
   match list with
@@ -69,10 +69,16 @@ let rec insert_sorted new_element list =
 
 *)
 
-let foo a b = String.length a + int_of_float b
+let foo (a : string) (b : float) : int = String.length a + int_of_float b
 
 (* 
    
+
+
+
+
+
+
 *)
 
 type vector3 = float * float * float
@@ -87,7 +93,7 @@ let string_of_vector3 (x, y, z) =
 
 let vector3_add a b =
   let (a, b, c), (x, y, z) = (a, b) in
-  (a +. x, b + y, c +. z)
+  (a +. x, b +. y, c +. z)
 
 let vector3_max v1 v2 =
   match (v1, v2) with
