@@ -67,11 +67,14 @@ let rec insert_sorted new_element list =
 
 
 
-
-
-
-
 *)
+
+let foo a b = String.length a + int_of_float b
+
+(* 
+   
+*)
+
 type vector3 = float * float * float
 
 let p1 = (0., 1., 2.)
