@@ -41,6 +41,6 @@ let rec remove x t =
         | Leaf, Leaf -> Leaf
         | Leaf, r -> r
         | l, Leaf -> l
-        | l, r ->
-            let new_l, l_max = remove_max l in
-            Node (new_l, l_max, r))
+        | l, r -> let new_l, l_max = remove_max l in
+
+                  Node (new_l, l_max, r))
