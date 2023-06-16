@@ -18,18 +18,34 @@ let rec lmap func (Cons (a, f)) =
 
 let sixes = lmap (fun x -> x + 1) fives
 
+
+
+
+
+
 (* Partial Application *)
 
+
 let func a b c = a b :: c
-(*
+
    let func2 =
       fun a ->
         fun b ->
           fun c ->
             a b :: c
-*)
+
+
+let b =  func2 (fun x -> x+1) 5
+
+let b =  func (fun x -> x+1) 5  
+
 
 (* a -> b -> c -> d -> e *)
-(* a -> b -> c -> d -> e *)
+
+(* a -> (b -> c -> (d -> e)) *)
+
 
 let plus_five = ( + ) 5
+
+
+
