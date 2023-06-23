@@ -5,8 +5,9 @@ let (), () =
   (x, x)
 
 let (), () =
-  let x () = print_endline "foo" in
+  let x _ =  print_endline "foo" in
   (x (), x ())
+
 
 (*
      1. What are side-effects? Give some examples.
@@ -28,8 +29,22 @@ let check_password pwd =
     raise (Pw_exn "the password cant be the same, as your TumOnline password")
   else ()
 
-let divide a b = try a / b with Division_by_zero -> -1
+
+
+
+
+let divide a b = 
+try 
+  a / b 
+with Division_by_zero -> -1
+
+
+
+
 let failwith msg = raise (Failure msg)
+
+
+
 
 (* Unit Chaining *)
 
@@ -42,7 +57,15 @@ let talkative_add a b =
   print_endline "Bon Appétit:";
   sum
 
+
+
 let () = List.iter (fun x -> print_endline (string_of_int x)) [ 1; 2; 3; 4 ]
+
+
+
+
+
+
 
 (* Jonas' File Handling API *)
 
@@ -63,13 +86,15 @@ let () = List.iter (fun x -> print_endline (string_of_int x)) [ 1; 2; 3; 4 ]
 
 
   Writing:
-    output_string : out_channel -> unit
+    output_string : out_channel -> string -> unit
 
   Reading:
     input_line : in_channel -> string
     String.split_on_char : char -> string -> string list
 
 *)
+
+
 
 (* Writing Integer Lists *)
 
@@ -85,6 +110,7 @@ let store_int_list filename list =
     close_out channel;
     raise ex
 
+
 (* Reading Integer Lists *)
 
 let rec read_int_list_from_channel channel =
@@ -93,14 +119,15 @@ let rec read_int_list_from_channel channel =
     i :: read_int_list_from_channel channel
   with
   | End_of_file -> []
-  | Failure _ -> failwith "Die Liste darf nur Integer Werte enthalten"
+  | Failure _ -> failwith ""
+     
 
-let load_int_list filename =
+      let load_int_list filename =
   let channel = open_in filename in
   try
-    let db = read_int_list_from_channel channel in
+    let db  = read_int_list_from_channel channel in
     close_in channel;
-    db
-  with ex ->
+    db 
+  with exxxxxx ->
     close_in channel;
-    raise ex
+    raise exxxxxx
