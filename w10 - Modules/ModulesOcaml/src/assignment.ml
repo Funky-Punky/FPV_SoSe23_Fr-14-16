@@ -61,13 +61,11 @@ interface Module {
 
 module type Bar = sig
   type t
-
   val foo : t -> t
 end
 
 module ImplementsBar : Bar with type t = int = struct
   type t = int
-
   let foo x = 2 * x
 end
 
